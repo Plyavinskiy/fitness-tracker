@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Fitness Tracker</title>
+  </head>
+  <body class="grey darken-4">
+    <div class="nav z-depth-0">
+      <div class="section cetner">
+        <h3 class="white-text center">- Fitness Tracker -</h3>
+      </div>
+    </div>
+
+    <div class="section center">
+      <p class="grey-text flow-text">Fitness Tracker for Everyone</p>
+    </div>
+
+    <div class="container section">
+      <div class="row">
+        <div class="col s12 l5">
+          <button class="active" data-activity="cycling">Cycling</button>
+          <button data-activity="running">Running</button>
+          <button data-activity="swimming">Swimming</button>
+          <button data-activity="walking">Walking</button>
+        </div>
+        <div class="col s12 l6 push-l1">
+          <div class="canvas"></div>
+        </div>
+      </div>
+      <div class="row">
+        <form class="col m6 push-m3">
+          <p class="flow-text grey-text center">
+            How much <span>cycling</span> have you done today?
+          </p>
+          <input
+            type="text"
+            class="grey-text"
+            id="cycling"
+            placeholder="Distance (in meters)"
+          />
+          <p class="center pink-text error text-lighten-1"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCuO_fiontmOwb9xqvrletIQdU7GYjCsjo",
+        authDomain: "fitness-tracker-2bb2f.firebaseapp.com",
+        projectId: "fitness-tracker-2bb2f",
+        storageBucket: "fitness-tracker-2bb2f.appspot.com",
+        messagingSenderId: "1035179993647",
+        appId: "1:1035179993647:web:15f12bf3a9d1fed40374da",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+  </body>
+</html>
